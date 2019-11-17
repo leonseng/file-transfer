@@ -9,7 +9,7 @@ This is a skeletal server-client file transfer program. A custom socket has been
 
 To run the demos, execute the following commands in order:
 ## Server
-`python server.py`
+`python student_code.py -c <server port>`
 
 ## Client
-`python client.py`
+`python student_code.py <server IP> <server port> <filename>`
