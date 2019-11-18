@@ -1,3 +1,5 @@
+import os 
+
 import settings
 from CustomSocket import CustomSocket
 
@@ -14,7 +16,9 @@ def start(serverIp, serverPort, fileName):
             data, addr = clientSocket.recvfrom(settings.BUFFER_SIZE)
             print("Rx: {} from {}".format(data, addr))
     elif settings.RUN_DEMO == 2:
-        with open("/tmp/rx_test.jpg", "wb") as f:
+        downloadPath = "/download"
+        os.makedirs(downloadPath, exist_ok=True)
+        with open(downloadPath + "/rx_test.jpg", "wb") as f:
             while True:
                 data, addr = clientSocket.recvfrom(settings.BUFFER_SIZE)
                 if data == settings.TEST_EOF:
